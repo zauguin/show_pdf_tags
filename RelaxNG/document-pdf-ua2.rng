@@ -71,6 +71,12 @@
     <element>
       <name ns="">AssociatedFile</name>
       <attribute name="name"/>
+      <optional>
+        <attribute name="relationship"/>
+      </optional>
+      <optional>
+        <attribute name="media-type"/>
+      </optional>
       <choice>
         <text/>
         <ref name="math"/>
@@ -81,6 +87,12 @@
     <element>
       <name ns="">AssociatedFile</name>
       <attribute name="name"/>
+      <attribute name="relationship">
+        <value>Supplement</value>
+      </attribute>
+      <attribute name="media-type">
+        <value>application/mathml+xml</value>
+      </attribute>
       <ref name="math"/>
     </element>
   </define>
@@ -88,21 +100,31 @@
     <element>
       <name ns="">AssociatedFile</name>
       <attribute name="name"/>
+      <optional>
+        <attribute name="relationship"/>
+      </optional>
+      <optional>
+        <attribute name="media-type"/>
+      </optional>
       <text/>
     </element>
   </define>
   <define name="formula-requirements">
-    <choice>
-      <attribute name="actualtext"/>
-      <attribute name="alt"/>
-      <group>
-        <zeroOrMore>
-          <ref name="Lbl"/>
-        </zeroOrMore>
-        <ref name="mathse"/>
-      </group>
-      <ref name="AssociatedFilemath"/>
-    </choice>
+    <interleave>
+      <optional>
+        <attribute name="alt"/>
+      </optional>
+      <choice>
+        <attribute name="actualtext"/>
+        <group>
+          <zeroOrMore>
+            <ref name="Lbl"/>
+          </zeroOrMore>
+          <ref name="mathse"/>
+        </group>
+        <ref name="AssociatedFilemath"/>
+      </choice>
+    </interleave>
   </define>
   <define name="pdfuaid_part">
     <a:documentation>PDF/UA-2</a:documentation>

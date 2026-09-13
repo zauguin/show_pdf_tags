@@ -50,24 +50,30 @@ StructTreeRoot = element NoNS:StructTreeRoot {Document|DocumentFragment}
 
 AssociatedFile = element NoNS:AssociatedFile {
 attribute name {text},
+attribute relationship {text}?,
+attribute media-type {text}?,
 (text|math)
 }
 
 AssociatedFilemath = element NoNS:AssociatedFile {
 attribute name {text},
+attribute relationship {"Supplement"},
+attribute media-type {"application/mathml+xml"},
 (math)
 }
 AssociatedFiletext = element NoNS:AssociatedFile {
 attribute name {text},
+attribute relationship {text}?,
+attribute media-type {text}?,
 (text)
 }
 
 formula-requirements = (
-  attribute actualtext {text}|
-  attribute alt {text} |
-  (Lbl*,mathse) |
-  AssociatedFilemath
-)
+  attribute alt {text}? & (
+    attribute actualtext {text}|
+    (Lbl*,mathse) |
+    AssociatedFilemath
+))
 
 ## PDF/UA-2
 pdfuaid_part = element pdfuaid:part {"2"}
