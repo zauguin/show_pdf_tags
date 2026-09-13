@@ -1,6 +1,19 @@
-show-pdf-tags provides a tool to make the structure of tagged PDF files visible.
-It parses a PDF files and extracts most tagging related information to turn it into
-either a visual tree structure or a XML document representing the tags.
+show-pdf-tags v1.6
 
-The package is released together with a collection of schemas which can be used to
-check that the resulting XML structure follows specified rules.
+The XML output from show-pdf-tags has been extended to show the
+AF relationship and media-type of associated files.
+
+This is a breaking change, generated XML will show this information.
+
+All associated files associated to Formula will have the same values added:
+so it should be easy to update any test suites testing for the original format.
+
+< AssociatedFile name="mathml-1.xml" xmlns="" >
+< AssociatedFile name="mathml-1.xml" relationship="Supplement" media-type="application/mathml+xml" xmlns="" >
+
+< AssociatedFile name="tag-AFfile2.tex" xmlns="" >
+< AssociatedFile name="tag-AFfile2.tex" relationship="Source" media-type="application/x-tex" xmlns="" >
+
+The Schema have been updated to allow for these attributes (and to check that MathML associated files
+have relationship Supplement). They also allow some modified strucure element names in the LaTeX namespace
+to match code in current and planned latex-dev releases.
