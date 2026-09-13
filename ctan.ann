@@ -17,3 +17,6 @@ so it should be easy to update any test suites testing for the original format.
 The Schema have been updated to allow for these attributes (and to check that MathML associated files
 have relationship Supplement). They also allow some modified strucure element names in the LaTeX namespace
 to match code in current and planned latex-dev releases.
+
+Some experimental support to generate PDF Association "Tag Tree Diagrams" using PlantUML is also provided
+as XSLT stylesheets transforming the XML output to PlantUML syntax.
